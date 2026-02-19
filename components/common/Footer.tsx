@@ -1,54 +1,49 @@
 import Link from "next/link";
-import { GithubIcon, FacebookIcon, LinkedinIcon, MailIcon } from "lucide-react";
+import { Github, Facebook, Linkedin, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const socialLinks = [
   {
     name: "GitHub",
-    href: "https://github.com/yourusername",
-    icon: GithubIcon,
+    href: "https://github.com/arielbatoon09",
+    icon: Github,
   },
   {
     name: "Facebook",
-    href: "https://facebook.com/yourusername",
-    icon: FacebookIcon,
+    href: "https://facebook.com/arielbatoon",
+    icon: Facebook,
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/yourusername",
-    icon: LinkedinIcon,
+    href: "https://linkedin.com/in/arielbatoon",
+    icon: Linkedin,
   },
   {
     name: "Email",
-    href: "mailto:[EMAIL_ADDRESS]",
-    icon: MailIcon,
+    href: "mailto:contact@arielbatoon.com",
+    icon: Mail,
   },
 ];
 
 export function Footer() {
-  return (
-    <footer aria-label="Footer" className="py-4">
-      <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-y-2 sm:flex-row sm:justify-between">
-        <ul className="flex flex-wrap gap-2 justify-around w-full mb-4 md:justify-center md:mb-0 md:w-auto">
-          {socialLinks.map((link) => (
-            <li key={link.name}>
-              <Link href={link.href}>
-                <link.icon className="bg-gray-200/70 dark:bg-gray-800/70 hover:bg-gray-300/70 dark:hover:bg-gray-700/70 transition-colors duration-300 ease-in-out w-8 h-8 p-1.5 rounded-full" />
-              </Link>
-            </li>
-          ))}
-        </ul>
+  const currentYear = new Date().getFullYear();
 
-        <div className="flex flex-wrap items-center justify-center gap-x-2 text-center">
-          <span className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Ariel Batoon |{" "}
-            <Link className="hover:text-foreground transition-colors underline" href="/license">
-              License
+  return (
+    <footer className="w-full py-4">
+      <div className="container mx-auto max-w-4xl px-4 flex flex-col-reverse md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col items-center md:items-start gap-2">
+          <span className="text-sm text-muted-foreground">© {currentYear} Ariel Batoon. All rights reserved.</span>
+        </div>
+
+        <div className="flex items-center gap-1">
+          {socialLinks.map((link) => (
+            <Link key={link.name} href={link.href} target="_blank" rel="noreferrer">
+              <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full text-muted-foreground hover:text-foreground">
+                <link.icon className="h-4 w-4" />
+                <span className="sr-only">{link.name}</span>
+              </Button>
             </Link>
-            {" "}|{" "}
-            <Link className="hover:text-foreground transition-colors underline" href="/privacy">
-              Privacy
-            </Link>
-          </span>
+          ))}
         </div>
       </div>
     </footer>
