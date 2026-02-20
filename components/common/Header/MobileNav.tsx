@@ -26,10 +26,10 @@ export default function MobileNav() {
         </DrawerTrigger>
         <DrawerContent className="h-full rounded-l-xl rounded-r-none outline-none">
           <div className="px-6 py-4 border-b flex justify-between items-center">
-            <DrawerTitle>Menu</DrawerTitle>
+            <DrawerTitle className="font-bold text-xl">Menu</DrawerTitle>
             <DrawerClose asChild>
               <Button variant="ghost" size="icon" className="p-2 -mr-2 hover:bg-muted rounded-md outline-none">
-                <X className="w-5 h-5" />
+                <X className="size-6" />
               </Button>
             </DrawerClose>
           </div>
@@ -38,7 +38,7 @@ export default function MobileNav() {
               const active = isActive(nav.href);
               return (
                 <Link key={nav.title} href={nav.href || "#"}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-colors ${active ? "bg-primary/10 text-primary" : "hover:bg-muted"}`}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-[0.5rem] text-sm font-medium transition-colors ${active ? "bg-primary/10 text-primary" : "hover:bg-muted"}`}
                 >
                   {nav.icon && <nav.icon className="w-4 h-4" />}
                   {nav.title}
@@ -47,7 +47,7 @@ export default function MobileNav() {
             })}
           </div>
           <DrawerFooter className="border-t p-4">
-            <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 rounded-md text-sm font-medium transition-colors">
+            <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 rounded-[0.5rem] text-sm font-medium transition-colors">
               <Mail className="w-4 h-4" />
               Contact
             </Link>
