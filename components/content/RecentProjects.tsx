@@ -2,7 +2,7 @@ import { Section } from "@/components/common/Section";
 import { CardShowcase } from "@/components/common/CardShowcase";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
-export default function RecentProjects() {
+export function RecentProjects() {
   return (
     <Section className="!py-12">
       <SectionHeading title="Recent Projects" description="Here are some of my recent projects" button={{ label: "View All", href: "/projects" }} />

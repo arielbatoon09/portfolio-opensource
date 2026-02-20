@@ -22,9 +22,9 @@ export const HeaderNavigations: NavigationItem[] = [
   {
     title: "More",
     submenu: [
-      { title: "Experience", href: "/experience", description: "My professional journey", icon: Briefcase },
-      { title: "Certifications", href: "/certifications", description: "Achievements and badges", icon: Award },
-      { title: "Skills", href: "/skills", description: "Technologies I use", icon: Zap },
+      { title: "Experience", href: "/about#experience", description: "My professional journey", icon: Briefcase },
+      { title: "Skills", href: "/about#skills", description: "Technologies I use", icon: Zap },
+      { title: "Certifications", href: "/about#certificates", description: "Achievements and badges", icon: Award },
       { title: "Socials", href: "/socials", description: "Connect with me", icon: Share2 },
       { title: "Contact", href: "/contact", description: "Get in touch", icon: Mail },
     ],
@@ -36,8 +36,8 @@ export const MobileNavigations: NavigationItem[] = [
   { title: "About", href: "/about", icon: User },
   { title: "Blogs", href: "/blog", icon: BookOpen },
   { title: "Projects", href: "/projects", icon: Layers },
-  { title: "Experience", href: "/experience", icon: Briefcase },
-  { title: "Certifications", href: "/certifications", icon: Award },
-  { title: "Skills", href: "/skills", icon: Zap },
+  { title: "Experience", href: "/about#experience", icon: Briefcase },
+  { title: "Skills", href: "/about#skills", icon: Zap },
+  { title: "Certifications", href: "/about#certificates", icon: Award },
   { title: "Socials", href: "/socials", icon: Share2 },
 ]

@@ -1,29 +1,6 @@
 import Link from "next/link";
-import { Github, Facebook, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const socialLinks = [
-  {
-    name: "GitHub",
-    href: "https://github.com/arielbatoon09",
-    icon: Github,
-  },
-  {
-    name: "Facebook",
-    href: "https://facebook.com/arielbatoon",
-    icon: Facebook,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://linkedin.com/in/arielbatoon",
-    icon: Linkedin,
-  },
-  {
-    name: "Email",
-    href: "mailto:contact@arielbatoon.com",
-    icon: Mail,
-  },
-];
+import { Socials } from "@/constants/socials";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -36,10 +13,10 @@ export function Footer() {
         </div>
 
         <div className="flex items-center gap-1">
-          {socialLinks.map((link) => (
+          {Socials.map((link) => (
             <Link key={link.name} href={link.href} target="_blank" rel="noreferrer">
               <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full text-muted-foreground hover:text-foreground">
-                <link.icon className="h-4 w-4" />
+                {link.icon}
                 <span className="sr-only">{link.name}</span>
               </Button>
             </Link>

@@ -2,7 +2,7 @@ import { Section } from "@/components/common/Section";
 import { CardShowcase } from "@/components/common/CardShowcase";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
-export default function RecentBlogs() {
+export function RecentBlogs() {
   return (
     <Section className="!py-12">
       <SectionHeading title="Recent Blogs" description="Here are some of my recent blogs" button={{ label: "View All", href: "/blogs" }} />
