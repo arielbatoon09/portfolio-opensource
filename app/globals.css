@@ -157,8 +157,6 @@
   --theme-accent: oklch(75% .18 180);
 }
 
-
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
