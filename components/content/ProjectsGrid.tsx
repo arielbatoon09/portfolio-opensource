@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
 import { useState, useMemo, useEffect } from "react";
 import { Project, ProjectType, ProjectCategory, Projects } from "@/constants/projects";
 import { ProjectFilters } from "@/components/content/ProjectFilters";
-import { ProjectCard, ProjectCardSkeleton } from "@/components/common/ProjectCard";
+import { CardShowcase, CardShowcaseSkeleton } from "@/components/common/CardShowcase";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Section } from "@/components/common/Section";
@@ -86,13 +86,19 @@ export function ProjectsGrid() {
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {Array.from({ length: itemsPerPage }).map((_, i) => (
-              <ProjectCardSkeleton key={i} />
+              <CardShowcaseSkeleton key={i} withDescription />
             ))}
           </div>
         ) : currentProjects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {currentProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <CardShowcase
+                key={project.id}
+                title={project.title}
+                image={project.thumbnail}
+                href={`/projects/${project.slug}`}
+                description={project.description}
+              />
             ))}
           </div>
         ) : (

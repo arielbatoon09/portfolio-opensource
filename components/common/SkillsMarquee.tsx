@@ -23,27 +23,24 @@ const SkillCard = ({ name, icon: Icon }: SkillCardProps) => {
 };
 
 export function SkillsMarquee() {
-  const firstRow = skills.filter((skill) => skill.line === 1);
-  const secondRow = skills.filter((skill) => skill.line === 2);
-  const thirdRow = skills.filter((skill) => skill.line === 3);
+  const rowLines = [1, 2, 3];
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-      <Marquee pauseOnHover className="[--duration:50s]">
-        {firstRow.map((skill) => (
-          <SkillCard key={skill.name} {...skill} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:50s] mt-2">
-        {secondRow.map((skill) => (
-          <SkillCard key={skill.name} {...skill} />
-        ))}
-      </Marquee>
-      <Marquee pauseOnHover className="[--duration:50s] mt-2">
-        {thirdRow.map((skill) => (
-          <SkillCard key={skill.name} {...skill} />
-        ))}
-      </Marquee>
+      {rowLines.map((line, index) => (
+        <Marquee
+          key={line}
+          reverse={index % 2 !== 0} // Line 2 (index 1) will be reversed (To Right)
+          pauseOnHover
+          className={cn("[--duration:50s]", index > 0 && "mt-2")}
+        >
+          {skills
+            .filter((skill) => skill.line === line)
+            .map((skill) => (
+              <SkillCard key={skill.name} {...skill} />
+            ))}
+        </Marquee>
+      ))}
       <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r"></div>
       <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l"></div>
     </div>

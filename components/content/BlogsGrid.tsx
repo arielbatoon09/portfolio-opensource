@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
 import { useState, useMemo, useEffect } from "react";
-import { BlogCategory, BlogPosts, BlogPost } from "@/constants/blogs";
+import { BlogCategory, BlogPosts } from "@/constants/blogs";
 import { BlogFilters } from "@/components/content/BlogFilters";
-import { BlogCard, BlogCardSkeleton } from "@/components/common/BlogCard";
+import { CardShowcase, CardShowcaseSkeleton } from "@/components/common/CardShowcase";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Section } from "@/components/common/Section";
@@ -92,13 +92,20 @@ export function BlogsGrid() {
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {Array.from({ length: itemsPerPage }).map((_, i) => (
-              <BlogCardSkeleton key={i} />
+              <CardShowcaseSkeleton key={i} withDescription />
             ))}
           </div>
         ) : currentBlogs.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {currentBlogs.map((post) => (
-              <BlogCard key={post.id} post={post} />
+              <CardShowcase
+                key={post.id}
+                title={post.title}
+                image={post.coverImage}
+                href={`/blog/${post.slug}`}
+                description={post.excerpt}
+                date={post.date}
+              />
             ))}
           </div>
         ) : (
