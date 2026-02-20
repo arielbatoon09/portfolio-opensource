@@ -29,8 +29,14 @@ export function HomeBanner() {
             A full-stack Software Engineer building modern web applications and tailored software solutions, and Founder of <Link href="https://hysync.org" target="_blank" rel="noopener noreferrer" className="font-bold text-primary hover:underline">Hysync</Link>, a Hytale server.
           </p>
           <div className="flex flex-col md:flex-row gap-2">
-            <Button size="lg" className="bg-foreground hover:bg-foreground/90"><Calendar /> Get in Touch</Button>
-            <Button size="lg" variant="outline">Explore Projects</Button>
+            <Button size="lg" asChild>
+              <Link href="/contact">
+                <Calendar className="mr-2 h-4 w-4" /> Get in Touch
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/projects">Explore Projects</Link>
+            </Button>
           </div>
         </div>
       </div>

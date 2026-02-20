@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 export function AboutHero() {
   return (
     <Section className="!pb-0">
-      <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] lg:grid-cols-[280px_1fr] gap-10 md:gap-16 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] lg:grid-cols-[280px_1fr] gap-10 md:gap-16 items-center">
         {/* Left Column: Image & Status */}
         <div className="space-y-6 mx-auto w-full max-w-sm md:max-w-none md:sticky md:top-24">
           <div className="relative aspect-[3/4] w-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 rounded-2xl overflow-hidden ring-1 ring-border/20">
